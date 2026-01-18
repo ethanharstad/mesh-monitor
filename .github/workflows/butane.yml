@@ -11,7 +11,6 @@ jobs:
       - name: Generate Ignition file
         run: docker run --interactive --rm quay.io/coreos/butane:release --pretty --strict < core.bu > core.ign
       - name: Upload Ignition file
-        uses: actions/upload-artifact@v4
+        uses: softprops/action-gh-release@v2
         with:
-          name: core.ign
-          path: core.ign
+          files: core.ign
