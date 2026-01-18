@@ -6,6 +6,8 @@ jobs:
   butane:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
       - name: Generate Ignition file
         run: docker run --interactive --rm quay.io/coreos/butane:release --pretty --strict < core.bu > core.ign
       - name: Upload Ignition file
